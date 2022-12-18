@@ -87,7 +87,7 @@ let options = {
     PATH: `${knodePath("bin")}:${process.env.PATH}`,
   },
 }
-await exec(`npm i --production`, options)
+await exec(`pnpm i --production`, options)
 
 // console.log(`Install app deps`)
 // await exec(`${npm} i @johnlindquist/kitdeps@0.1.1`)

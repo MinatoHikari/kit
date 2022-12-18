@@ -19,16 +19,16 @@ cp("package*.json", kitPath())
 cp("LICENSE", kitPath())
 
 console.log(`Building ESM to ${kitPath()}`)
-let esm = exec(`npx tsc --outDir ${kitPath()}`)
+let esm = exec(`pnpx tsc --outDir ${kitPath()}`)
 
 console.log(`Building declarations to ${kitPath()}`)
 let dec = exec(
-  `npx tsc --project ./tsconfig-declaration.json --outDir ${kitPath()}`
+  `pnpx tsc --project ./tsconfig-declaration.json --outDir ${kitPath()}`
 )
 
 console.log(`Building CJS to ${kitPath()}`)
 let cjs = exec(
-  `npx tsc --project ./tsconfig-cjs.json --outDir "${kitPath(
+  `pnpx tsc --project ./tsconfig-cjs.json --outDir "${kitPath(
     "cjs"
   )}"`
 )

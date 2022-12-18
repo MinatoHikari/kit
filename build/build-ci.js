@@ -19,12 +19,12 @@ cp("LICENSE", kitPath())
 
 let { stdout: nodeVersion } = await exec(`node --version`)
 console.log({ nodeVersion })
-let { stdout: npmVersion } = await exec(`npm --version`)
+let { stdout: npmVersion } = await exec(`pnpm --version`)
 console.log({ npmVersion })
 
 console.log(`Building ESM to ${kitPath()}`)
 try {
-  let esm = await exec(`npx tsc --outDir ${kitPath()}`)
+  let esm = await exec(`pnpx tsc --outDir ${kitPath()}`)
   console.log(esm)
 } catch (e) {
   console.log(e)
@@ -34,7 +34,7 @@ try {
 console.log(`Building declarations to ${kitPath()}`)
 try {
   let dec = await exec(
-    `npx tsc --project ./tsconfig-declaration.json --outDir ${kitPath()}`
+    `pnpx tsc --project ./tsconfig-declaration.json --outDir ${kitPath()}`
   )
   console.log(dec)
 } catch (e) {
@@ -46,7 +46,7 @@ console.log(`Building CJS to ${kitPath()}`)
 
 try {
   let cjs = await exec(
-    `npx tsc --project ./tsconfig-cjs.json --outDir "${kitPath(
+    `pnpx tsc --project ./tsconfig-cjs.json --outDir "${kitPath(
       "cjs"
     )}"`
   )

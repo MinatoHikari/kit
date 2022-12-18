@@ -1,6 +1,7 @@
 {
   "name": "@johnlindquist/kit",
   "type": "module",
+  "packageManager": "pnpm@7.0.0",
   "bin": {
     "kit": "./bin/kit",
     "sk": "./bin/sk",
@@ -35,9 +36,9 @@
     "pretest": "node ./scripts/test-pre.js",
     "test": "NODE_NO_WARNINGS=1 ava --no-worker-threads",
     "posttest": "node ./scripts/test-post.js",
-    "cjs": "source ./build/set-env-vars.sh && npx tsc --project ./tsconfig-cjs.json --outDir \"$KIT/cjs\" && node ./scripts/cjs-fix.js",
+    "cjs": "source ./build/set-env-vars.sh && pnpx tsc --project ./tsconfig-cjs.json --outDir \"$KIT/cjs\" && node ./scripts/cjs-fix.js",
     "build-editor-types": " kit ./build/build-editor-types.ts",
-    "rebuild-test": "npm run rebuild-kit && npm run test -- --fail-fast"
+    "rebuild-test": "pnpm run rebuild-kit && pnpm run test -- --fail-fast"
   },
   "author": "John Lindquist (https://johnlindquist.com)",
   "license": "ISC",
@@ -58,6 +59,7 @@
     "filesize": "9.0.11",
     "googlethis": "1.4.3",
     "highlight.js": "11.6.0",
+    "lodash": "^4.17.21",
     "node-notifier": "10.0.1",
     "open": "8.4.0",
     "shelljs": "0.8.5",
@@ -74,6 +76,8 @@
     "@types/node-ipc": "9.2.0",
     "ava": "4.3.3",
     "debug": "4.3.4",
+    "fs-extra": "^11.1.0",
+    "pnpm": "^7.0.0",
     "semantic-release": "19.0.5",
     "semantic-release-plugin-update-version-in-files": "1.1.0",
     "tsc-watch": "5.0.3",
